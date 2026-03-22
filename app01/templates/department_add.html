@@ -1,0 +1,20 @@
+{% extends 'extend.html' %}
+{% block add %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">新建部门</h3>
+            </div>
+            <div class="panel-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {#                    <label for="title"></label>#}
+                        <input name="title" type="text" class="form-control" id="title" placeholder="部门名称">
+                    </div>
+                    <button type="submit" class="btn btn-success">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
