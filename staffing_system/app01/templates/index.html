@@ -1,0 +1,57 @@
+{% extends "extend.html" %}
+
+{% block context %}
+<div class="container" style="margin-top: 30px;">
+
+    <div class="panel panel-default" style="border-radius: 12px;">
+        <div class="panel-body" style="padding: 40px 50px;">
+            <h1 style="margin-top: 0;">欢迎来到用户管理系统</h1>
+            <p style="font-size: 16px; color: #666; margin-top: 15px;">
+                基于 Django 搭建的员工与部门管理系统，可实现登录、部门管理、用户管理等功能。
+            </p >
+
+            {% if request.session.info %}
+                <p style="margin-top: 20px; font-size: 15px;">
+                    当前登录用户：<strong>{{ request.session.info.name }}</strong>
+                </p >
+            {% else %}
+                <p style="margin-top: 20px; font-size: 15px; color: #999;">
+                    你当前还未登录，请先登录后使用系统功能。
+                </p >
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 25px;">
+
+        <div class="col-md-6">
+            <div class="panel panel-default" style="border-radius: 10px; min-height: 220px;">
+                <div class="panel-body" style="padding: 30px;">
+                    <h3 style="margin-top: 0;">部门管理</h3>
+                    <p style="color: #777; line-height: 1.8; margin-top: 15px;">
+                        维护部门信息，支持部门新增、编辑、删除和列表展示。
+                    </p >
+                    <a href="/department/list/" class="btn btn-primary" style="margin-top: 20px;">
+                        进入模块
+                    </a >
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default" style="border-radius: 10px; min-height: 220px;">
+                <div class="panel-body" style="padding: 30px;">
+                    <h3 style="margin-top: 0;">用户管理</h3>
+                    <p style="color: #777; line-height: 1.8; margin-top: 15px;">
+                        管理员工信息，支持用户的新增、编辑、删除、登录与列表展示。
+                    </p >
+                    <a href="/user/list/" class="btn btn-primary" style="margin-top: 20px;">
+                        进入模块
+                    </a >
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
